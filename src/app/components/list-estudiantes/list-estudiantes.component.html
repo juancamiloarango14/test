@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <span class="h1"> Listado de estudiantes</span>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" class="btn btn-success" routerLink="/create-estudiante">Agregar</button>
+         </div>
+
+            <h5 style="margin-top: 30px;" *ngIf="estudiantes.length == 0">No hay datos para mostrar</h5>
+            <table *ngIf="estudiantes.length > 0" class="table table table-dark table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Codigo</th>
+                    <th>Curso</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let estudiante of estudiantes">
+                    <th>{{estudiante.nombre}}</th>
+                    <td>{{estudiante.apellido}}</td>
+                    <td>{{estudiante.codigo}}</td>
+                    <td>{{estudiante.curso}}</td>
+                    <td>
+                    
+                      <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/edit-estudiante/', estudiante.id]"></i>
+                      <i (click)="eliminarEstudiante(estudiante.id)" class="fa-solid fa-trash fa-lg text-danger"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-grid gap-2 d-md-block">
+                   </div> 
+        </div>
+    </div>
+
+
+</div>
